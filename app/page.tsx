@@ -172,6 +172,20 @@ export default function Home() {
       setIsStreaming(false);
       isProcessingTurn.current = false;
 
+      // If content is empty, remove the placeholder message
+      if (!content || content.trim() === '') {
+        setMessages(prev => {
+          const newMsgs = [...prev];
+          if (newMsgs.length > 0 && newMsgs[newMsgs.length - 1].content === '') {
+            return newMsgs.slice(0, -1);
+          }
+          return newMsgs;
+        });
+        // Continue to next turn without adding empty message
+        setTimeout(() => processTurn(turnIndex + 1, currentMessages, currentMatches), 1000);
+        return;
+      }
+
       const updatedMessages = [...currentMessages, {
         role: 'assistant',
         content: content,
