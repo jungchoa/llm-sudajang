@@ -14,7 +14,7 @@ interface Match {
 }
 
 // Configuration
-const TOTAL_TURNS = 3; // 1 round: 유토 → 디스토 → 도파 → 바로 사회자 정리
+const TOTAL_TURNS = 6; // 2 rounds: 기승전결 구조
 
 export default function Home() {
   const [gameState, setGameState] = useState<GameState>('start');

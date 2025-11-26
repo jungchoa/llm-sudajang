@@ -96,11 +96,14 @@ ${conversationLog}
             contextPrompt += `**직전 발언:** ${lastSpeaker}가 "${lastAssistantMsg.content.slice(0, 100)}${lastAssistantMsg.content.length > 100 ? '...' : ''}"라고 말했습니다.\n\n`;
         }
         
-        // Turn-specific instructions based on 기승전결
+        // Turn-specific instructions based on 기승전결 (6턴 구조)
         const turnRoles = [
             '기(起) - 토론의 시작: 주제를 희망적으로 열고 핵심 키워드를 제시하세요.',
-            '승(承) - 긴장 고조: 유토의 주장을 정면 반박하며 긴장감을 높이세요.',
-            '전(轉) - 클라이맥스: 유토와 디스토 양쪽을 정리하고 반전을 던지세요.'
+            '승(承) - 반박 시작: 유토의 주장을 정면 반박하며 긴장감을 시작하세요.',
+            '승(承) - 관전 & 드립: 양측 싸움을 구경하며 가볍게 드립을 치세요.',
+            '전(轉) - 재반박: 디스토의 공격에 맞서 새로운 논리로 반격하세요.',
+            '전(轉) - 최고조 공격: 가장 강력한 팩트로 상대를 압박하세요.',
+            '전(轉) - 클라이맥스 반전: 양측을 모두 정리하고 예상 못한 반전을 던지세요.'
         ];
         const currentRole = turnRoles[turnIndex] || '';
 
