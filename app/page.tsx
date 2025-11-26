@@ -14,8 +14,7 @@ interface Match {
 }
 
 // Configuration
-const TOTAL_TURNS = 9; // 3 rounds of 3 characters each
-const MID_SUMMARY_AFTER_TURN = 6; // Insert mid-summary after turn 6 (2 full rounds)
+const TOTAL_TURNS = 3; // 1 round: 유토 → 디스토 → 도파 → 바로 사회자 정리
 
 export default function Home() {
   const [gameState, setGameState] = useState<GameState>('start');
@@ -106,12 +105,7 @@ export default function Home() {
       return;
     }
 
-    // Check if we should insert mid-summary (after turn 6, before turn 7)
-    if (turnIndex === MID_SUMMARY_AFTER_TURN) {
-      // Pass turnIndex + 1 to continue to the NEXT turn after summary
-      await processMidSummary(currentMessages, currentMatches, turnIndex + 1);
-      return;
-    }
+    // Mid-summary removed for cost efficiency
 
     setCurrentTurn(turnIndex);
     setIsStreaming(true);
