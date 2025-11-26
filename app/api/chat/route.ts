@@ -96,12 +96,22 @@ ${conversationLog}
             contextPrompt += `**직전 발언:** ${lastSpeaker}가 "${lastAssistantMsg.content.slice(0, 100)}${lastAssistantMsg.content.length > 100 ? '...' : ''}"라고 말했습니다.\n\n`;
         }
         
-        contextPrompt += `**지시사항:**
+        // Turn-specific instructions based on 기승전결
+        const turnRoles = [
+            '기(起) - 토론의 시작: 주제를 희망적으로 열고 핵심 키워드를 제시하세요.',
+            '승(承) - 긴장 고조: 유토의 주장을 정면 반박하며 긴장감을 높이세요.',
+            '전(轉) - 클라이맥스: 유토와 디스토 양쪽을 정리하고 반전을 던지세요.'
+        ];
+        const currentRole = turnRoles[turnIndex] || '';
+
+        contextPrompt += `**현재 턴: ${turnIndex + 1}턴 (${currentRole})**
+
+**지시사항:**
 1. 위의 전체 대화 기록을 읽고 흐름을 파악하세요.
-2. ${lastSpeaker ? `직전 발언자(${lastSpeaker})의 말에 먼저 반응하세요.` : '주제에 대해 첫 발언을 하세요.'}
-3. 가능하다면 토론 초반에 나왔던 다른 사람의 의견도 끌어와서 비교하거나 연결하세요.
-4. 이미 누군가 했던 말을 똑같이 반복하지 마세요. 새로운 관점을 제시하세요.
-5. 당신의 캐릭터(${character.name})답게 답변하세요.`;
+2. ${lastSpeaker ? `직전 발언자(${lastSpeaker})의 말을 직접 인용하며 반응하세요.` : '주제에 대해 첫 발언을 하세요.'}
+3. 이전 발언자들이 언급한 키워드를 활용해서 연결하세요.
+4. 이미 나온 말을 반복하지 말고 새로운 관점을 제시하세요.
+5. 당신의 역할(${character.name}, ${currentRole})에 맞게 답변하세요.`;
 
         // Create the message array for the AI
         const aiMessages = [
