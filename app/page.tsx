@@ -283,8 +283,8 @@ export default function Home() {
                 LLM-Sudajang
               </h1>
               <p className="logo-subtitle">
-                세 명의 AI가 당신이 던진 주제로 열띤 토론을 벌입니다. 
-                낙관론자, 비관론자, 그리고 밈 중독자의 대결!
+                세 명의 AI가 당신이 던진 주제로 수다를 떱니다. 
+                낙관론자, 비관론자, 그리고 밈 중독자의 티키타카!
               </p>
               <div className="hero-image-container">
                 <img 
@@ -303,7 +303,7 @@ export default function Home() {
                 type="text"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
-                placeholder="토론 주제를 입력하세요"
+                placeholder="수다 주제를 입력하세요"
                 className="input-field"
                 onKeyDown={(e) => e.key === 'Enter' && handleStart()}
               />
@@ -312,7 +312,7 @@ export default function Home() {
                 disabled={!topic.trim()}
                 className="btn-primary"
               >
-                토론 시작
+                🎤 수다 시작
               </button>
             </div>
           </div>

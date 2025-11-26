@@ -1,0 +1,17 @@
+{
+  "name": "LLM-Sudajang",
+  "short_name": "수다장",
+  "description": "세 명의 AI가 당신이 던진 주제로 수다를 떱니다",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#8B5CF6",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+
