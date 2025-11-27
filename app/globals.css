@@ -127,6 +127,14 @@ body {
   font-style: italic;
 }
 
+.version-tag {
+  margin-top: 0.5rem;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  opacity: 0.6;
+  font-family: monospace;
+}
+
 /* Hero Image */
 .hero-image-container {
   margin-top: 1.5rem;

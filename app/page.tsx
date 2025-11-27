@@ -14,7 +14,8 @@ interface Match {
 }
 
 // Configuration
-const TOTAL_TURNS = 6; // 2 rounds: 기승전결 구조
+const TOTAL_TURNS = 6;
+const VERSION = 'v1.2.0';
 
 export default function Home() {
   const [gameState, setGameState] = useState<GameState>('start');
@@ -296,6 +297,7 @@ export default function Home() {
               <p className="logo-credit">
                 Inspired by Andrej Karpathy's LLM Council
               </p>
+              <p className="version-tag">{VERSION}</p>
             </div>
 
             <div className="input-section">
