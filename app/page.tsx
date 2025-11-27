@@ -15,7 +15,7 @@ interface Match {
 
 // Configuration
 const TOTAL_TURNS = 6;
-const VERSION = 'v1.2.0';
+const VERSION = 'v1.3.0';
 
 export default function Home() {
   const [gameState, setGameState] = useState<GameState>('start');
